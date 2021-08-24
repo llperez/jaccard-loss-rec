@@ -1,2 +1,2 @@
-# jaccard-loss-recsys
-Jaccard index loss for recommendations
+# jaccard-loss-rec
+Experiments with a Jaccard index-like log-loss function
