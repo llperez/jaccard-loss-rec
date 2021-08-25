@@ -14,13 +14,13 @@ def jaccard_loss(y_true, y_pred, smoothing=10):
 
 
 ## Builds the model
-def get_model(X_train, X_train_scaled, loss_func, enc_layer_size=50):
+def get_model(X_train, X_train_scaled, loss_func, enc_layer_size=40):
     input_layer = keras.Input(shape=(X_train.shape[1],))
     enc_layer = layers.Dense(enc_layer_size, activation='tanh')(input_layer)
     dec_layer = layers.Dense(enc_layer_size, activation='tanh')(enc_layer)
     output_layer = layers.Dense(X_train.shape[1], activation='sigmoid')(dec_layer)
     model = keras.Model(input_layer, output_layer)
     model.compile(optimizer='adam', loss=loss_func)
-    model.fit(X_train_scaled, X_train, epochs=400, batch_size=128, shuffle=True)    
+    model.fit(X_train_scaled, X_train, epochs=500, batch_size=128, shuffle=True)    
     return model
 
